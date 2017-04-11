@@ -3,6 +3,7 @@ import RippleMechanics as rm
 import sys
 import numpy as np
 import copy
+import time
 
 def attack_violation(matrix, row_num, col_num, value, domain_list):
     '''
@@ -168,6 +169,8 @@ def backtrack(initial_matrix, room_matrix, domain_list, row_num = 0, col_num = 0
     M[row_num][col_num] = 0 #Reset.
 
 if __name__ == "__main__":
+    start_time = time.time()
+
     #Handles optional parameter "--all"
     global allSolns
     try:
@@ -218,3 +221,4 @@ if __name__ == "__main__":
 
     backtrack(initial, room, domains, M = initial)
     print "Number of solutions: ", count
+    print("%s seconds" % (time.time() - start_time))
