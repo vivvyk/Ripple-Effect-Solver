@@ -93,6 +93,8 @@ def backtrack(initial_matrix, room_matrix, row_num = 0, col_num = 0, M=[]):
             if count < 101:
                 print count
                 print np.array(M), '\n'
+                if count == 100:
+                    print("100 solutions found in %s seconds" % (time.time() - start_time))
         else:
             if count == 1:
                 print "\nExample Solution:"
