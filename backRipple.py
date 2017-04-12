@@ -82,7 +82,7 @@ def backtrack(initial_matrix, room_matrix, row_num = 0, col_num = 0, M=[]):
     @return: No return value.
 
     NOTE: Sometimes there are thousands of solutions. If "--all" is invoked, then we simply print the first 100 solutions to avoid
-    overloading the terminal, and count every solution. If not, we simply print the first solution, but still count every solution. Also,
+    overloading the terminal, and count every solution. If not, we simply print the first solution, mark time, but still count every solution. Also,
     some levels might take quite a while to solve!
     '''
     if row_num == len(M): #We have reached a solution
@@ -97,6 +97,7 @@ def backtrack(initial_matrix, room_matrix, row_num = 0, col_num = 0, M=[]):
             if count == 1:
                 print "\nExample Solution:"
                 print np.array(M), '\n'
+                print("Solution found in %s seconds" % (time.time() - start_time))
         return
 
     if initial_matrix[row_num][col_num] != 0: #For a cell that already has a value in it, we do not test other values.
@@ -157,4 +158,4 @@ if __name__ == "__main__":
 
     backtrack(initial,room,M = initial)
     print "Number of solutions: ", count
-    print("%s seconds" % (time.time() - start_time))
+    print ("All solns found in %s seconds" % (time.time() - start_time))
